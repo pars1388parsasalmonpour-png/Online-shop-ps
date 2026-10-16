@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#7128d8">
+
+  <title>محصولات | Violet Market</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="products.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="catalog.js" defer></script>
+</head>
+
+<body>
+  <div class="announcement" data-i18n="announcement">
+    تخفیف‌های ویژه؛ خرید هوشمندانه با Violet Market
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span class="brand-icon">V</span>
+      <span>Violet<span class="brand-accent">Market</span></span>
+    </a>
+
+    <form class="search-form" id="searchForm" role="search">
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="جست‌وجوی محصولات..."
+        data-i18n-placeholder="searchPlaceholder"
+        aria-label="جست‌وجوی محصولات"
+      >
+      <button type="submit" aria-label="جست‌وجو">⌕</button>
+    </form>
+
+    <div class="header-actions">
+      <button class="icon-button" id="languageToggle" type="button">EN</button>
+      <button class="icon-button" id="themeToggle" type="button">🌙</button>
+
+      <a class="cart-button" href="cart.html">
+        🛒 <span data-i18n="cart">سبد خرید</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </a>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <a href="index.html" data-i18n="home">صفحه اصلی</a>
+    <a class="active" href="products.html" data-i18n="products">همه محصولات</a>
+    <a href="categories.html" data-i18n="categories">دسته‌بندی‌ها</a>
+    <a href="products.html?sale=true" data-i18n="discounts">تخفیف‌ها</a>
+  </nav>
+
+  <main class="container">
+    <div class="page-heading">
+      <h1 id="catalogTitle">همه محصولات</h1>
+      <p id="catalogDescription">محصول موردنظرت را پیدا کن.</p>
+    </div>
+
+    <div class="catalog-layout">
+      <aside class="filter-panel">
+        <h2 data-i18n="filterProducts">فیلتر محصولات</h2>
+
+        <form id="filterForm">
+          <div class="filter-group">
+            <label for="categoryFilter" data-i18n="category">دسته‌بندی</label>
+
+            <select id="categoryFilter">
+              <option value="" data-i18n="allCategories">همه دسته‌بندی‌ها</option>
+              <option value="electronics">کالای دیجیتال</option>
+              <option value="fashion">مد و پوشاک</option>
+              <option value="home">خانه و آشپزخانه</option>
+              <option value="beauty">زیبایی و سلامت</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="minPrice" data-i18n="minimumPrice">حداقل قیمت (تومان)</label>
+            <input
+              id="minPrice"
+              type="number"
+              min="0"
+              step="1000"
+              inputmode="numeric"
+              placeholder="0"
+            >
+
+            <label for="maxPrice" data-i18n="maximumPrice">حداکثر قیمت (تومان)</label>
+            <input
+              id="maxPrice"
+              type="number"
+              min="0"
+              step="1000"
+              inputmode="numeric"
+              placeholder="مثلاً 5000000"
+            >
+          </div>
+
+          <div class="filter-group">
+            <label class="checkbox-row">
+              <input id="saleFilter" type="checkbox">
+              <span data-i18n="onlyDiscounted">فقط محصولات تخفیف‌دار</span>
+            </label>
+          </div>
+
+          <div class="filter-actions">
+            <button
+              class="apply-filters"
+              type="submit"
+              data-i18n="applyFilters"
+            >اعمال فیلتر</button>
+
+            <button
+              class="reset-filters"
+              id="resetFilters"
+              type="button"
+              data-i18n="resetFilters"
+            >پاک کردن فیلتر</button>
+          </div>
+        </form>
+      </aside>
+
+      <section>
+        <div class="catalog-toolbar">
+          <p>
+            <span data-i18n="productCount">تعداد محصولات</span>:
+            <strong id="resultCount">0</strong>
+          </p>
+
+          <select id="sortSelect" aria-label="مرتب‌سازی">
+            <option value="recommended" data-i18n="sortRecommended">پیشنهادی</option>
+            <option value="cheapest" data-i18n="sortCheapest">ارزان‌ترین</option>
+            <option value="expensive" data-i18n="sortExpensive">گران‌ترین</option>
+            <option value="discount" data-i18n="sortDiscount">بیشترین تخفیف</option>
+          </select>
+        </div>
+
+        <div class="product-grid" id="catalogProducts"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <span class="brand-icon">V</span>
+          <span>Violet<span class="brand-accent">Market</span></span>
+        </a>
+        <p data-i18n="footerDescription">تجربه‌ای ساده، زیبا و هوشمندانه از خرید آنلاین.</p>
+      </div>
+
+      <div class="footer-column">
+        <h3 data-i18n="quickAccess">دسترسی سریع</h3>
+        <a href="index.html" data-i18n="home">صفحه اصلی</a>
+        <a href="products.html" data-i18n="products">همه محصولات</a>
+        <a href="categories.html" data-i18n="categories">دسته‌بندی‌ها</a>
+      </div>
+
+      <div class="footer-column">
+        <h3 data-i18n="customerService">خدمات مشتریان</h3>
+        <a href="cart.html" data-i18n="cart">سبد خرید</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="currentYear"></span> Violet Market. <span data-i18n="copyright">تمام حقوق محفوظ است.</span></p>
+    </div>
+  </footer>
+</body>
+  </html>
